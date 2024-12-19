@@ -3,9 +3,9 @@ name: Docker Image CI
 on:
   workflow_dispatch:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
 
@@ -36,12 +36,6 @@ jobs:
         version=$(cat package.json | jq -r '.version')
         echo "version=$version" >> $GITHUB_OUTPUT
 
-    # - name: 'Create env production file'  # update this part
-    #   run: |
-    #     touch .env.production
-    #     echo NEXT_PUBLIC_API_IP=${{ secrets.API_IP }} >> .env.production
-    #     echo NEXT_PUBLIC_MAP_IP=${{ secrets.MAP_IP }} >> .env.production
-
     - name: Build image
       uses: docker/build-push-action@v5
       with:
@@ -54,9 +48,6 @@ jobs:
         outputs: type=docker,dest=vision-backend-${{ matrix.platform }}.tar
         cache-from: type=gha
         cache-to: type=gha,mode=max
-        # build-args: |  # update this part
-        #   NEXT_PUBLIC_API_IP=${{ secrets.API_IP }}
-        #   NEXT_PUBLIC_MAP_IP=${{ secrets.MAP_IP }}
 
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
