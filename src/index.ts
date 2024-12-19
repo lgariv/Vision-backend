@@ -18,5 +18,5 @@ const server = http.createServer(app);
 app.use("/", router());
 
 server.listen(process.env.PORT, () => {
-  console.log(`Server running on http://localhost:6001/`);
+  console.log(`Server running on http://localhost:${process.env.PORT}/`);
 });
