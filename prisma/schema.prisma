@@ -1,0 +1,82 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// prisma/schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+enum SiteType {
+  DUS
+  BBU
+}
+
+enum Modifier {
+  BEGINS
+  ENDS
+  CONTAINS
+  REGEX
+}
+
+model User {
+  id       String   @id @default(cuid())
+  name     String?
+  email    String?  @unique
+  image    String?
+  password String?
+  role     UserRole @default(USER)
+}
+
+model PasswordResetToken {
+  id      String   @id @default(cuid())
+  email   String
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model Site {
+  id               String        @id //amos name
+  siteNameForUser  String
+  portableLocation String        @default("")
+  pikud            String
+  createdAt        DateTime      @default(now())
+  siteIP           String
+  siteType         SiteType      @default(BBU)
+  isPortable       Boolean
+  defaultLocation  String
+  isInUse          Boolean       @default(true) //determaines if site in use
+  NiturResult      NiturResult[]
+}
+
+model NiturResult {
+  id        Int       @id @default(autoincrement())
+  site      Site      @relation(fields: [siteId], references: [id])
+  siteId    String
+  data      Json
+  createdAt DateTime  @default(now())
+  niturTime DateTime?
+}
+
+model Limits {
+  id         String @id //command name
+  lowerLimit Float
+  upperLimit Float
+}
+
+model AllowedAlerts {
+  id       Int      @id @default(autoincrement())
+  body     String
+  modifier Modifier
+}
