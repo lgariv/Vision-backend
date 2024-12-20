@@ -302,7 +302,6 @@ const formatSiteDataToJson = async (siteData: string, site: string, niturDate:Da
 		const stIkeData = formatStIkeToObject(data[4]);
 		const RRData = await formatRRToObject(data[5]);
 		const uePrintAdmittedData = formatUePrintAdmittedDataToObject(data[6]);
-		const getEarfcnToObject = formatGetEarfcnToObject(data[7]);
 		const invxrfData = await formatInvxrfDataToObject(data[8]);
 		const configuredMaxTxPowerData = formatGetConfiguredMaxTxPowerToObject(
 			data[9]
@@ -319,7 +318,6 @@ const formatSiteDataToJson = async (siteData: string, site: string, niturDate:Da
 			st_ike: stIkeData,
 			rr: RRData,
 			ue_print_admitted: uePrintAdmittedData,
-			getEarfcn: getEarfcnToObject,
 			invxrf: invxrfData,
 			configuredMaxTxPowerData: configuredMaxTxPowerData,
 			alt: altData,
@@ -371,7 +369,6 @@ const splitSiteDataByCommands = (siteData: string) => {
 		"st ike",
 		"pmxet . radioRecInterferencePucchPwr$",
 		"ue print -admitted",
-		"get . earfcn",
 		"invxrf",
 		"get . configuredMaxTxPower",
 		"alt",
@@ -784,48 +781,6 @@ const formatUePrintAdmittedDataToObject = (stCellData: string) => {
 	}
 	generalInfo.totalRows = data.length;
 	return { generalInfo, data };
-};
-
-/**
- *
- * @param getEarfcnData lines of get earfcn command
- * @returns result of command as object
- */
-const formatGetEarfcnToObject = (getEarfcnData: string) => {
-	const lines = getEarfcnData
-		.split("\n")
-		.filter((line) => line.trim() !== "");
-
-	const generalInfo = {
-		commandName: lines[0].trim(),
-		totalRows: 0,
-	};
-	if (getEarfcnData.includes("Total: 0 MOs")) {
-		const data: string[] = [];
-		return { generalInfo, data };
-	} else {
-		const data = [];
-		for (let i = 1; i < lines.length; i++) {
-			const line = lines[i].trim();
-			if (line.includes("EUtranCellFDD")) {
-				//data to collect
-				const rowData = line
-					.split("  ")
-					.map((elem) => elem.trim())
-					.filter((line) => line.trim() !== "");
-				const splitArrayForSector = rowData[0].split("=")[1].split("_");
-				data.push({
-					sector: splitArrayForSector[splitArrayForSector.length - 1],
-					mo: rowData[0],
-					mode: rowData[1].includes("dl") ? "dl" : "ul",
-					attribute: rowData[1],
-					value: rowData[2],
-				});
-			}
-		}
-		generalInfo.totalRows = data.length;
-		return { generalInfo, data };
-	}
 };
 
 /**
