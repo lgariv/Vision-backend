@@ -1,0 +1,24 @@
+
+Full command = /opt/ericsson/amos/moshell/mobatch -w 1 -p 30 -t 10 /home/shared/zira/.Teal/sitelist.txt 'lt all;rbs;rbs;st cell;st rru;st mme;st ike;pmxet . radioRecInterferencePucchPwr$;ue print -admitted;invxrf;get . configuredMaxTxPower;alt;get gps;get gnss' /home/shared/zira/.Teal/TealLogs
+Sitefile = /home/shared/zira/.Teal/sitelist.txt. Number of sites = 109
+Command = lt all;rbs;rbs;st cell;st rru;st mme;st ike;pmxet . radioRecInterferencePucchPwr$;ue print -admitted;get . earfcn;invxrf;get . configuredMaxTxPower;alt;get gps;get gnss
+Timeout set to 10 minutes
+Wait interval set to 1 seconds
+Maximum number of parallel processes set to 30
+
+Logfiles stored in /home/shared/zira/.Teal/TealLogs
+
+###########################################################################################
+>>>>> STARTED (pid)
+** FINISHED (result)              STATUS (started, finished, queue, running, sites running)
+###########################################################################################
+>>>>> tel_aviv (12345)              1s  0f 0q  1r: tel_aviv 
+** tel_aviv (OK)
+###########################################################################################
+
+OK            1m29s   tel_aviv
+
+Total mobatch duration: 10m2s
+Average duration per site with status OK: 2m20s
+Logfiles stored in /home/shared/zira/.Teal/TealLogs
+2024-12-20 11:30:07

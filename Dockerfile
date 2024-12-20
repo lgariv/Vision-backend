@@ -29,7 +29,7 @@ COPY setup-cron.sh /app/setup-cron.sh
 RUN chmod +x /app/setup-cron.sh
 
 # Add cron rule to call queue_and_run.sh
-RUN crontab -l | { cat; echo "0 * * * * /bin/bash /app/get-sites.sh"; } | crontab -
+RUN crontab -l | { cat; echo "*/5 * * * * /bin/bash /app/get-sites.sh"; } | crontab -
 
 EXPOSE 6001
 
