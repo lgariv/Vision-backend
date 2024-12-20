@@ -126,8 +126,8 @@ Collecting RCS board data ...
 241220-11:23:43+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
 coli>/lrat/ue print -admitted
 CellId  #UE:s  #Bearers  
-   1       2        2
-   2       0        0
+   1       1        2
+   2       3        0
    3       2        2
 coli>/rc/nrat/ue print -admitted
 Service not found
