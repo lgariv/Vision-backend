@@ -302,13 +302,11 @@ const formatSiteDataToJson = async (siteData: string, site: string, niturDate:Da
 		const stIkeData = formatStIkeToObject(data[4]);
 		const RRData = await formatRRToObject(data[5]);
 		const uePrintAdmittedData = formatUePrintAdmittedDataToObject(data[6]);
-		const invxrfData = await formatInvxrfDataToObject(data[8]);
-		const configuredMaxTxPowerData = formatGetConfiguredMaxTxPowerToObject(
-			data[9]
-		);
-		const altData = await formatAltToObject(data[10]);
-		const gpsData = formatGetGpsToObject(data[11]);
-		const gnssData = formatGetGnssToObject(data[12]);
+		const invxrfData = await formatInvxrfDataToObject(data[7]);
+		const configuredMaxTxPowerData = formatGetConfiguredMaxTxPowerToObject(data[8]);
+		const altData = await formatAltToObject(data[9]);
+		const gpsData = formatGetGpsToObject(data[10]);
+		const gnssData = formatGetGnssToObject(data[11]);
 
 		const dataObject = {
 			date: niturDate,
@@ -420,7 +418,7 @@ const formatLtAllDataToObject = (ltAllData: string) => {
  * @returns result of command as object
  */
 const formatStCellDataToObject = (stCellData: string) => {
-	const lines = stCellData.split("\n").filter((line) => line.trim() !== "");
+    const lines = stCellData.split("\n").filter((line) => line.trim() !== "");
 	let rowId = 1;
 	const generalInfo = {
 		commandName: lines[0].trim(),
@@ -428,42 +426,42 @@ const formatStCellDataToObject = (stCellData: string) => {
 		status: "",
 	};
 
-	const data = [];
-	let counter = 0;
-	for (let i = 1; i < lines.length; i++) {
-		const line = lines[i].trim();
-		if (line.includes("=======================================")) {
-			counter++;
-		} else {
-			if (counter > 1 && counter < 3) {
-				//data to collect
-				try {
-					const rowData = line
-						.split("  ")
-						.map((elem) => elem.trim())
-						.filter((elem) => elem != "");
-					const splitArrayForSector = rowData[3]
-						.split(",")[1]
-						.split("=")[1]
-						.split("_");
-					
-					const sector = splitArrayForSector[splitArrayForSector.length-1].length >= 3 ? `${splitArrayForSector[splitArrayForSector.length-2]} ${splitArrayForSector[splitArrayForSector.length-1]}` : splitArrayForSector[splitArrayForSector.length-1]
-					
-					data.push({
-						sector: sector,
-						sectorId: rowData[2].includes("ENABLED") ? `${rowId++}` : ``,
-						proxy: rowData[0],
-						admState: rowData[1],
-						opState: rowData[2],
-						mo: rowData[3], // Extract MO
-					});
+    const data = [];
+    let counter = 0;
+    for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line.includes("=======================================")) {
+            counter++;
+        } else {
+            if (counter > 1 && counter < 3) {
+                //data to collect
+                try {
+                    const rowData = line
+                        .split("  ")
+                        .map((elem) => elem.trim())
+                        .filter((elem) => elem != "");
+                    const splitArrayForSector = rowData[3]
+                        .split(",")[1]
+                        .split("=")[1]
+                        .split("_");
+                    
+                    const sector = splitArrayForSector[splitArrayForSector.length-1].length >= 3 ? `${splitArrayForSector[splitArrayForSector.length-2]} ${splitArrayForSector[splitArrayForSector.length-1]}` : splitArrayForSector[splitArrayForSector.length-1]
+                    
+                    data.push({
+                        sector: sector,
+                        sectorId: rowData[2].includes("ENABLED") ? `${rowId++}` : ``,
+                        proxy: rowData[0],
+                        admState: rowData[1],
+                        opState: rowData[2],
+                        mo: rowData[3], // Extract MO
+                    });
 				} catch (error) {}
-			}
-		}
-	}
-	generalInfo.totalRows = data.length;
-	generalInfo.status = stCellValidation(data);
-	return { generalInfo, data };
+            }
+        }
+    }
+    generalInfo.totalRows = data.length;
+    generalInfo.status = stCellValidation(data);
+    return { generalInfo, data };
 };
 
 const stCellValidation = (
