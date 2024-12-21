@@ -1,0 +1,616 @@
+Logging to file /home/shared/zira/.Teal/TealLogs/holon.log
+                        __  __  ____   _____
+                  /\   |  \/  |/ __ \ / ____|
+                 /  \  | \  / | |  | | (___  
+                / /\ \ | |\/| | |  | |\___ \ 
+               / ____ \| |  | | |__| |____) |
+              /_/    \_\_|  |_|\____/|_____/
+              OSS Framework for MoShell-23.0v 
+  Copyright (c) Ericsson AB 2001-2023 - All Rights Reserved
+              
+           
+[1;31mWARNING: [0mthe AMOS version currently running is more than 54 weeks old and is unsupported.
+Please upgrade as soon as possible to the latest released version, available from your local Ericsson support.
+
+$amosrb_pid = 1532
+
+Checking ip contact...OK
+
+HELP MENU            : h
+BASIC MO COMMANDS    : m
+OTHER MO COMMANDS    : n
+OTHER COMMANDS       : o
+PM COMMANDS          : p
+QUIT                 : q
+
+HOLON> lt all
+
+241220-11:22:38+0200 1.2.3.4 23.0v  stopfile=/tmp/672
+Looking up temporary_amos account... OK.
+Trying temporary_amos_zira_247's password from amos lookupAccount ... Not OK
+Looking up temporary_amos account... OK.
+Trying temporary_amos_zira_247's password from amos lookupAccount ... Not OK
+Trying username from script file: /ericsson/log/amos/moshell_logfiles/zira/logs_moshell/tempfiles/enm01-amos-1_20241220-112227_32747/monodeCmd672...
+Trying password from script file: /ericsson/log/amos/moshell_logfiles/zira/logs_moshell/tempfiles/enm01-amos-1_20241220-112227_32747/monodeCmd672...
+
+Number of Failed login attempt(s): 0
+Last Successful login: 2024-12-20 09:08:08 from 4.3.2.1
+
+$ssh_pid = 8053
+
+Connected to 1.2.3.4 (SubNetwork=ONRM_ROOT_MO,SubNetwork=LTE,MeContext=holon,ManagedElement=holon)
+
+Checking MOM version...MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6
+Parsing MOM (cached): /ericsson/log/amos/moshell_logfiles/zira/logs_moshell/tempfiles/enm01-amos-1_20241220-112227_32747/MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6.xml.cache.gz .....................................................................................................................................................................................................................Done.
+Using paramfile /opt/ericsson/amos/moshell/commonjars/pm/PARAM_MSRBS_23.Q3.txt
+Parsing file /opt/ericsson/amos/moshell/commonjars/pm/PARAM_MSRBS_23.Q3.txt ................................................................................Done.
+Using imomdfile /opt/ericsson/amos/moshell/commonjars/pm/IMOMD_MSRBS_22.Q4.txt
+Using imomfile /opt/ericsson/amos/moshell/commonjars/pm/IMOM_MSRBS_23.Q4.txt
+Connected to 1.2.3.4 (SubNetwork=ONRM_ROOT_MO,SubNetwork=LTE,MeContext=holon,ManagedElement=holon)
+
+Last MO: 17536. Loaded 17536 MOs. Total: 17537 MOs.
+
+HOLON> st cell
+
+241220-11:23:18+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+===================================================================================
+Proxy  Adm State     Op. State     MO
+===================================================================================
+   41  1 (UNLOCKED)  1 (ENABLED)   ENodeBFunction=1,EUtranCellFDD=holon_1
+  152  1 (UNLOCKED)  1 (ENABLED)   ENodeBFunction=1,EUtranCellFDD=holon_2
+  278  1 (UNLOCKED)  1 (ENABLED)   ENodeBFunction=1,EUtranCellFDD=holon_3
+===================================================================================
+Total: 3 MOs
+
+HOLON> st rru
+
+241220-11:23:19+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+===================================================================================
+Proxy  Adm State     Op. State     MO
+===================================================================================
+  750  1 (UNLOCKED)  1 (ENABLED)   Equipment=1,FieldReplaceableUnit=RRUS2212-1
+  763  1 (UNLOCKED)  1 (ENABLED)   Equipment=1,FieldReplaceableUnit=RRUS2212-2
+  776  1 (UNLOCKED)  1 (ENABLED)   Equipment=1,FieldReplaceableUnit=RRUS2212-3
+===================================================================================
+Total: 3 MOs
+
+HOLON> st mme
+
+241220-11:23:19+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+===================================================================================
+Proxy  Adm State     Op. State     MO
+===================================================================================
+  702  1 (UNLOCKED)  1 (ENABLED)   ENodeBFunction=1,TermPointToMme=MME_ONE
+  703  1 (UNLOCKED)  1 (ENABLED)   ENodeBFunction=1,TermPointToMme=MME_TWO
+===================================================================================
+Total: 2 MOs
+
+HOLON> st ike
+
+241220-11:23:19+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+===================================================================================
+Proxy  Adm State     Op. State     MO
+===================================================================================
+17452                1 (ENABLED)   Transport=1,Router=OAM,IpsecTunnel=OAM_ONE,Ikev2Session=1
+17455                1 (ENABLED)   Transport=1,Router=OAM,IpsecTunnel=OAM_TWO,Ikev2Session=1
+17469                1 (ENABLED)   Transport=1,Router=UP,IpsecTunnel=UP_ONE,Ikev2Session=1
+17472                1 (ENABLED)   Transport=1,Router=UP,IpsecTunnel=UP_TWO,Ikev2Session=1
+===================================================================================
+Total: 4 MOs
+
+HOLON> pmxet . radioRecInterferencePucchPwr$
+
+241220-11:23:20+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+Parsing PM cache: /home/shared/zira/moshell/jarxml/PMCACHE_MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6.txt.gz ... Done.
+
+
+Using formulafile /opt/ericsson/amos/moshell/commonjars/pm/FORMULA_MSRBS_0.txt
+Report at 2024-12-20 11:23:31 (Local time)
+lpget . ^(WeightedAverage|log10|pmRadioRecInterferencePwrPucch)$
+grep ';' /ericsson/log/amos/moshell_logfiles/zira/logs_moshell/tempfiles/enm01-amos-1_20241220-112227_32747/pmxgLog672  | sort | uniq | /bin/perl /opt/ericsson/amos/moshell/pmXtab -q -pval 2 -mom /ericsson/log/amos/moshell_logfiles/zira/logs_moshell/tempfiles/enm01-amos-1_20241220-112227_32747/pmxmomLog672  -cols time -fmt txt -m "[M]anagedElement=[^,]+,(?:\w+=1,){0,1}((\w+=[^,]+,*)+$)" -fdef /ericsson/log/amos/moshell_logfiles/zira/logs_moshell/tempfiles/enm01-amos-1_20241220-112227_32747/FORMULA_MSRBS_0.txt.txt.txt -xf /ericsson/log/amos/moshell_logfiles/zira/logs_moshell/tempfiles/enm01-amos-1_20241220-112227_32747/xfile.txt -if /ericsson/log/amos/moshell_logfiles/zira/logs_moshell/tempfiles/enm01-amos-1_20241220-112227_32747/ifile.txt -p 6.1  
+
+Date: 2024-12-20
+Object                 Counter                           11:23
+EUtranCellFDD=holon_1 Int_RadioRecInterferencePucchPwr -113.9
+EUtranCellFDD=holon_2 Int_RadioRecInterferencePucchPwr -109.2
+EUtranCellFDD=holon_3 Int_RadioRecInterferencePucchPwr -112.2
+
+
+HOLON> ue print -admitted
+Checking available boards on node...
+
+Collecting RCS board data ...
+.......................................................................
+.
+
+241220-11:23:43+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+coli>/lrat/ue print -admitted
+CellId  #UE:s  #Bearers  
+1 57 2
+2 145 0
+3 10 2
+coli>/rc/nrat/ue print -admitted
+Service not found
+coli>/rpc/nrat/ue print -admitted
+NRAT is dormant.
+coli>
+
+HOLON> invxrf
+
+241220-11:23:44+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+Connected to 1.2.3.4 (SubNetwork=ONRM_ROOT_MO,SubNetwork=LTE,MeContext=holon,ManagedElement=holon)
+
+Last MO: 17536. Loaded 17536 MOs. Total: 17537 MOs.
+Checking available boards on node...
+
+Collecting RCS board data ...
+.......................................................................
+.
+................................................................................................................................................................................
+get /rop/A20241220.0900-0915_holon.xml.gz /ericsson/log/amos/moshell_logfiles/zira/logs_moshell/pmfiles/1.2.3.4/rop/A20241220.0900-0915_holon.xml.gz ... OK
+......
+Collecting TN data...
+............................................................................................................................
+Collecting RF data...
+..............
+Node: RadioNode L   CXP9024418/16_R3F17 (24.Q3)   LTE-FDD 
+
+=====================================================================================================================================
+FRU        LNH    BOARD       ST FAULT OPER MAINT STAT PRODUCTNUMBER   REV     SERIAL        DATE     PMTEMP  TEMP  UPT VOLT SW                  
+=====================================================================================================================================
+1          000100 BB6318       1   OFF   ON   OFF   ON KDU1370053/31   R1D     E23A847743    20191026 4 (OK)            48                       
+RRUS2212-1 BXP_2  RRU2212B7    1   OFF   ON   OFF  N/A KRC161628/1     R1D/A   B441269397    20180327 4 (OK)  20.5 17.9 51.1 CXP9013268%15_R99LH  (Radio2212B7)
+RRUS2212-2 BXP_3  RRU2212B7    1   OFF   ON   OFF  N/A KRC161628/1     R1F     E23C472925    20210213 4 (OK)  20.5 17.9 51.6 CXP9013268%15_R99LH  (Radio2212B7)
+RRUS2212-3 BXP_4  RRU2217B28B  1   OFF   ON   OFF  N/A KRC161499/1     R1F     TU8U00S9PJ    20210401 4 (OK)  54.4 17.9 52.1 CXP9013268%9_R94JK   (Radio2217B28B)
+-------------------------------------------------------------------------------------------------------------------------------------
+
+=====================================================================================================================================
+AntennaNearUnit                       ST  TYPE   PRODUCTNR    REV       UNIQUEID         RfPort
+=====================================================================================================================================
+AntennaUnitGroup=1,AntennaNearUnit=2   1  S-RET  86010148V01  HW_V_A00  KAI0N1394764-Y1  FieldReplaceableUnit=RRUS2212-1,RfPort=R
+AntennaUnitGroup=2,AntennaNearUnit=2   1  S-RET  86010148V01  HW_V_A00  KAI0N1394762-Y1  FieldReplaceableUnit=RRUS2212-2,RfPort=R
+-------------------------------------------------------------------------------------------------------------------------------------
+
+=====================================================================================================================================
+XPBOARD  ST FAULT OPER PRODUCTNUMBER REV SERIAL/NAME DATE      TEMP MO
+=====================================================================================================================================
+-------------------------------------------------------------------------------------------------------------------------------------
+
+=====================================================================================================================================
+BOARD  LNH    PORT T S OpMode        AutoNeg MacAddress        VlanIds   LOS BER
+=====================================================================================================================================
+BB6318 000100 TN_A E 1 1G_FULL_SLAVE true    78:D3:47:DE:00:5F 3701,3801     
+-------------------------------------------------------------------------------------------------------------------------------------
+
+=====================================================================================================================================
+FRU        LNH    BOARD       RF  BP  TX (W/dBm)  VSWR (RL)   RX (dBm) UEs/gUEs  Sector/AntennaGroup/Cells (State:CellIds:PCIs)
+=====================================================================================================================================
+RRUS2212-1 BXP_2 RRU2212B7 A 11 11.1 (40.5) 1.6 (24.9) -100.7 3/- SE=1 AG=1 FDD=1 (1:1:1)
+RRUS2212-1 BXP_2 RRU2212B7 B 11 5.5 (37.4) 1.3 (20.5) -100.3 3/- SE=1 AG=1 FDD=1 (1:1:1)
+RRUS2212-2 BXP_3 RRU2212B7 A 11 2.7 (34.3) 1.85 (32.5) -101.7 0/- SE=2 AG=2 FDD=2 (1:2:2)
+RRUS2212-2 BXP_3 RRU2212B7 B 11 1.9 (32.8) 1.39 (25.6) -101.8 0/- SE=2 AG=2 FDD=2 (1:2:2)
+RRUS2212-3 BXP_4 RRU2217B28B A 11 97m (19.9) 1.75 (10.6) -91.5 1/- SE=3 AG=3 FDD=3 (1:3:3)
+RRUS2212-3 BXP_4 RRU2217B28B B 11 97m (19.9) 2.12 (14.0) -94.2 1/- SE=3 AG=3 FDD=3 (1:3:3)
+-------------------------------------------------------------------------------------------------------------------------------------
+Tip: use option "a" or "af" to show the connected AntennaSubunits and AntennaNearUnits.
+Tip: use option "g" to print graphical view of CPRI connections and RF connections.
+Tip: use command "sdi" to show system diagnostics of CPRI connections.
+
+HOLON> get . configuredMaxTxPower
+
+241220-11:24:51+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+=================================================================================================================
+MO                                                      Attribute         Value
+=================================================================================================================
+SectorCarrier=holon_1                                  configuredMaxTxPower 60000
+SectorCarrier=holon_2                                  configuredMaxTxPower 60000
+SectorCarrier=holon_3                                  configuredMaxTxPower 60000
+=================================================================================================================
+Total: 3 MOs
+
+
+HOLON> alt
+
+241220-11:24:51+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+
+Collecting Alarms...
+
+====================================================================================================================
+Date & Time (UTC)   S Specific Problem                    MO (AdditionalText/PC, AI)
+====================================================================================================================
+2024-12-05 12:33:45 m External Link Failure               ENodeBFunction=1 (X2 link problem to one or several neighbouring eNodeBs. AI: PLMN ID-eNB ID 1 : 4253-8664,PLMN ID-eNB ID : list truncated)
+2024-12-08 10:20:17 w Sync Frequency Server Reachability Fault Synchronization=1,RadioEquipmentClock=1,RadioEquipmentClockReference=2 (No IP connectivity towards NTP server)
+>>> Total: 2 Alarms (0 Critical, 0 Major)
+
+HOLON> get gps
+
+241220-11:24:52+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+=================================================================================================================
+7931                                 SystemFunctions=1,Pm=1,PmGroup=NRCellDU_GNBDU,MeasurementType=pmRadioMacLongPsrRsrpDistr
+=================================================================================================================
+aggregation                          2 (SUM)
+categories                           t[1] = 
+ >>> Struct[0]  has 3 members:
+ >>> 1.area = Retainability
+ >>> 2.scenario = Periodic SR Reconfig
+ >>> 3.type = PI
+collectionMethod                     1 (CC)
+condition                            Stepped when a decision to switch from short scheduling request on PUCCH periodicity to longer periodicity is made.\n
+derSampleRate                        
+description                          Distribution of last measured widebeam RSRP values at time of decision to switch scheduling request on PUCCH periodicity to longer periodicity.\nRanges: Bin[0]: [..-120] dBm Bin[1]: ]-120..-118] dBm Bin[2]: ]-118..-116] dBm Bin[3]: ]-116..-114] dBm Bin[4]: ]-114..-112] dBm Bin[5]: ]-112..-110] dBm Bin[6]: ]-110..-108] dBm Bin[7]: ]-108..-106] dBm Bin[8]: ]-106..-104] dBm Bin[9]: ]-104..-102] dBm Bin[10]: ]-102..-100] dBm Bin[11]: ]-100..-98] dBm Bin[12]: ]-98..-96] dBm Bin[13]: ]-96..-94] dBm Bin[14]: ]-94..] dBm\nUnit: N/A
+fmAlarmType                          
+initialValue                         0
+isCompressed                         false
+measurementResult                    
+measurementStatus                    1 (USED)
+measurementTypeId                    pmRadioMacLongPsrRsrpDistr
+multiplicity                         15
+resetAtGranPeriod                    true
+size                                 8
+thresholdDirection                   
+thresholdValidRange                  
+=================================================================================================================
+7932                                 SystemFunctions=1,Pm=1,PmGroup=NRCellDU_GNBDU,MeasurementType=pmRadioMacLongPsrSinrDistr
+=================================================================================================================
+aggregation                          2 (SUM)
+categories                           t[1] = 
+ >>> Struct[0]  has 3 members:
+ >>> 1.area = Retainability
+ >>> 2.scenario = Periodic SR Reconfig
+ >>> 3.type = PI
+collectionMethod                     1 (CC)
+condition                            Stepped when a decision to switch from short scheduling request on PUCCH periodicity to longer periodicity is made.\n
+derSampleRate                        
+description                          Distribution of SINR values as measured at time of decision to switch scheduling request on PUCCH periodicity to longer periodicity.\nRanges: Bin[0]: [..-1] dB Bin[1]: ]-1..1] dB Bin[2]: ]1..3] dB Bin[3]: ]3..5] dB Bin[4]: ]5..7] dB Bin[5]: ]7..9] dB Bin[6]: ]9..11] dB Bin[7]: ]11..13] dB Bin[8]: ]13..15] dB Bin[9]: ]15..17] dB Bin[10]: ]17..19] dB Bin[11]: ]19..21] dB Bin[12]: ]21..23] dB Bin[13]: ]23..25] dB Bin[14]: ]25..] dB\nUnit: N/A
+fmAlarmType                          
+initialValue                         0
+isCompressed                         false
+measurementResult                    
+measurementStatus                    1 (USED)
+measurementTypeId                    pmRadioMacLongPsrSinrDistr
+multiplicity                         15
+resetAtGranPeriod                    true
+size                                 8
+thresholdDirection                   
+thresholdValidRange                  
+=================================================================================================================
+17532                                Transport=1,Synchronization=1,RadioEquipmentClock=1,RadioEquipmentClockReference=GPS
+=================================================================================================================
+adminQualityLevel                    Struct{3}
+ >>> 1.qualityLevelValueOptionI = 2 (SSU_A)
+ >>> 2.qualityLevelValueOptionII = 2 (STU)
+ >>> 3.qualityLevelValueOptionIII = 1 (UNK)
+administrativeState                  0 (LOCKED)
+availabilityStatus                   i[0] = 
+encapsulation                        Synchronization=1,TimeSyncIO=1
+holdOffTime                          1000
+operQualityLevel                     19 (GNSS)
+operationalState                     1 (ENABLED)
+priority                             1
+radioEquipmentClockReferenceId       GPS
+receivedQualityLevel                 19 (GNSS)
+referenceStatus                      1 (NO_FAULT)
+syncRefType                          7 (GNSS_RECEIVER)
+useQLFrom                            1 (RECEIVED_QL)
+waitToRestoreTime                    60
+=================================================================================================================
+Total: 3 MOs
+
+
+HOLON> get gnss
+
+241220-11:24:52+0200 1.2.3.4 23.0v MSRBS_NODE_MODEL_24.Q3_198663.171.71_edc6 stopfile=/tmp/672
+=================================================================================================================
+949                                  SystemFunctions=1,Fm=1,FmAlarmModel=1,FmAlarmType=GNSSReceiverFirmwareUpgradeFailure
+=================================================================================================================
+additionalText                       
+configuredSeverity                   
+defaultSeverity                      
+eventType                            5 (EQUIPMENTALARM)
+filterList                           [0] = 
+filterOperationalState               i[0] = 
+fmAlarmTypeId                        GNSSReceiverFirmwareUpgradeFailure
+isNotified                           0 (NOTIFIED)
+isStateful                           true
+majorType                            193
+minorType                            9175250
+probableCause                        315 (EquipmentMalfunction)
+specificProblem                      GNSS Receiver Firmware Upgrade Failure
+=================================================================================================================
+3850                                 SystemFunctions=1,Pm=1,PmGroup=EUtranCellFDD,MeasurementType=pmUeCapabilityGnss
+=================================================================================================================
+aggregation                          2 (SUM)
+categories                           t[1] = 
+ >>> Struct[0]  has 3 members:
+ >>> 1.area = Utilization
+ >>> 2.scenario = UE Population
+ >>> 3.type = Traffic
+collectionMethod                     1 (CC)
+condition                            Stepped when GNSS capable UE is connected.
+derSampleRate                        
+description                          Number of UEs with GNSS capability. This together with counters pmUeCategoryDistr and pmUeCategoryDlUlCombDistr can be used for finding out device penetration.\nScanner: Not included in any predefined scanner
+fmAlarmType                          
+initialValue                         0
+isCompressed                         false
+measurementResult                    
+measurementStatus                    1 (USED)
+measurementTypeId                    pmUeCapabilityGnss
+multiplicity                         1
+resetAtGranPeriod                    true
+size                                 4
+thresholdDirection                   
+thresholdValidRange                  
+=================================================================================================================
+5906                                 SystemFunctions=1,Pm=1,PmGroup=EUtranCellTDD,MeasurementType=pmUeCapabilityGnss
+=================================================================================================================
+aggregation                          2 (SUM)
+categories                           t[1] = 
+ >>> Struct[0]  has 3 members:
+ >>> 1.area = Utilization
+ >>> 2.scenario = UE Population
+ >>> 3.type = Traffic
+collectionMethod                     1 (CC)
+condition                            Stepped when GNSS capable UE is connected.
+derSampleRate                        
+description                          Number of UEs with GNSS capability. This together with counters pmUeCategoryDistr and pmUeCategoryDlUlCombDistr can be used for finding out device penetration.\nScanner: Not included in any predefined scanner
+fmAlarmType                          
+initialValue                         0
+isCompressed                         false
+measurementResult                    
+measurementStatus                    1 (USED)
+measurementTypeId                    pmUeCapabilityGnss
+multiplicity                         1
+resetAtGranPeriod                    true
+size                                 4
+thresholdDirection                   
+thresholdValidRange                  
+=================================================================================================================
+7448                                 SystemFunctions=1,Pm=1,PmGroup=NRCellCU_GNBCUCP,MeasurementType=pmEndcUeCapabilityGnssLocation
+=================================================================================================================
+aggregation                          2 (SUM)
+categories                           t[1] = 
+ >>> Struct[0]  has 3 members:
+ >>> 1.area = Utilization
+ >>> 2.scenario = MDT, E-UTRA and NR: Dual Connectivity\n
+ >>> 3.type = PI
+collectionMethod                     1 (CC)
+condition                            Stepped when UE capabilities support GNSS location at X2 SGNB ADDITION REQUEST.\n
+derSampleRate                        
+description                          Number of UEs that support GNSS location capability for EN-DC.
+fmAlarmType                          
+initialValue                         0
+isCompressed                         false
+measurementResult                    
+measurementStatus                    1 (USED)
+measurementTypeId                    pmEndcUeCapabilityGnssLocation
+multiplicity                         1
+resetAtGranPeriod                    true
+size                                 8
+thresholdDirection                   
+thresholdValidRange                  
+=================================================================================================================
+7641                                 SystemFunctions=1,Pm=1,PmGroup=NRCellCU_GNBCUCP,MeasurementType=pmSaUeCapabilityGnssLocation
+=================================================================================================================
+aggregation                          2 (SUM)
+categories                           t[1] = 
+ >>> Struct[0]  has 3 members:
+ >>> 1.area = Utilization
+ >>> 2.scenario = MDT
+ >>> 3.type = PI
+collectionMethod                     1 (CC)
+condition                            Stepped when UE capabilities support GNSS location at receptin of NGAP INITIAL CONTEXT SETUP or NGAP HANDOVER REQUEST.\n
+derSampleRate                        
+description                          Number of UEs that support GNSS location capability for NR SA.
+fmAlarmType                          
+initialValue                         0
+isCompressed                         false
+measurementResult                    
+measurementStatus                    1 (USED)
+measurementTypeId                    pmSaUeCapabilityGnssLocation
+multiplicity                         1
+resetAtGranPeriod                    true
+size                                 8
+thresholdDirection                   
+thresholdValidRange                  
+=================================================================================================================
+12131                                SystemFunctions=1,Pm=1,PmJob=USERDEF-RadioNode_SYS_DEFINE.Cont.Y.STATS,MeasurementReader=EUtranCellFDD_pmUeCapabilityGnss_Id
+=================================================================================================================
+measurementReaderId                  EUtranCellFDD_pmUeCapabilityGnss_Id
+measurementReaderNameValue           t[0] = 
+measurementSpecification             Struct{2}
+ >>> 1.groupRef = 
+ >>> 2.measurementTypeRef = SystemFunctions=1,Pm=1,PmGroup=EUtranCellFDD,MeasurementType=pmUeCapabilityGnss
+moInstances                          s[0] = 
+thresholdDirection                   
+thresholdRateOfVariation             
+=================================================================================================================
+14090                                SystemFunctions=1,Pm=1,PmJob=USERDEF-RadioNode_SYS_DEFINE.Cont.Y.STATS,MeasurementReader=EUtranCellTDD_pmUeCapabilityGnss_Id
+=================================================================================================================
+measurementReaderId                  EUtranCellTDD_pmUeCapabilityGnss_Id
+measurementReaderNameValue           t[0] = 
+measurementSpecification             Struct{2}
+ >>> 1.groupRef = 
+ >>> 2.measurementTypeRef = SystemFunctions=1,Pm=1,PmGroup=EUtranCellTDD,MeasurementType=pmUeCapabilityGnss
+moInstances                          s[0] = 
+thresholdDirection                   
+thresholdRateOfVariation             
+=================================================================================================================
+17365                                SystemFunctions=1,SysM=1,Schema=RsyncGnssInfo
+=================================================================================================================
+baseModelIdentifier                  
+baseModelVersion                     
+identifier                           RsyncGnssInfo
+schemaId                             RsyncGnssInfo
+selectedModelOptions                 s[0] = 
+version                              1002.0.0
+=================================================================================================================
+17534                                Transport=1,Synchronization=1,TimeSyncIO=1,GnssInfo=1
+=================================================================================================================
+altitude                             75.20
+gnssInfoId                           1
+gnssRecAntSelStatus                  1 (SELECTION_UNSUPPORTED)
+gnssRecControlPath                   1 (CONTROL_PATH_EXIST)
+gnssReceiverControl                  Connected GNSS receiver does not support assigning control
+gnssReceiverFirmware                 Struct{4}
+ >>> 1.executingSlot = Unknown
+ >>> 2.fwRevisionSlot0 = Unknown
+ >>> 3.fwRevisionSlot1 = Unknown
+ >>> 4.fwRevisionSlot2 = Unknown
+gnssReceiverFwUpgradeStatus          1 (UPGRADE_UNSUPPORTED)
+gnssReceiverProductData              Struct{4}
+ >>> 1.additionalInfo = .1544
+ >>> 2.productName = SCU 10 01 GPS
+ >>> 3.productRevision = R1A
+ >>> 4.serialNumber = Unknown
+gnssReceiverStatus                   6 (SYNCHRONIZED)
+hdop                                 0.72
+latitude                             N 32 4.8520
+longitude                            E 34 46.8030
+multipleGnssActual                   17 (GPS_GLONASS)
+multipleGnssStatus                   3 (WANTED_GNSS_UNSUPPORTED)
+multipleGnssWanted                   19 (GPS_GALILEO)
+noOfSatellitesInUse                  13
+noOfSatellitesInView                 15
+observationPointMode                 2 (POSITION_HOLD)
+pdop                                 1.06
+satelliteInformation                 t[15] = 
+ >>> Struct[0]  has 6 members:
+ >>> 1.azimuth = 49
+ >>> 2.elevation = 52
+ >>> 3.satelliteIdentity = 30
+ >>> 4.signalToNoiseRatio = 49
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[1]  has 6 members:
+ >>> 1.azimuth = 143
+ >>> 2.elevation = 33
+ >>> 3.satelliteIdentity = 17
+ >>> 4.signalToNoiseRatio = 48
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[2]  has 6 members:
+ >>> 1.azimuth = 24
+ >>> 2.elevation = 79
+ >>> 3.satelliteIdentity = 14
+ >>> 4.signalToNoiseRatio = 47
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[3]  has 6 members:
+ >>> 1.azimuth = 261
+ >>> 2.elevation = 32
+ >>> 3.satelliteIdentity = 5
+ >>> 4.signalToNoiseRatio = 46
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[4]  has 6 members:
+ >>> 1.azimuth = 76
+ >>> 2.elevation = 22
+ >>> 3.satelliteIdentity = 7
+ >>> 4.signalToNoiseRatio = 46
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[5]  has 6 members:
+ >>> 1.azimuth = 323
+ >>> 2.elevation = 51
+ >>> 3.satelliteIdentity = 13
+ >>> 4.signalToNoiseRatio = 46
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[6]  has 6 members:
+ >>> 1.azimuth = 170
+ >>> 2.elevation = 15
+ >>> 3.satelliteIdentity = 19
+ >>> 4.signalToNoiseRatio = 43
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[7]  has 6 members:
+ >>> 1.azimuth = 225
+ >>> 2.elevation = 22
+ >>> 3.satelliteIdentity = 20
+ >>> 4.signalToNoiseRatio = 43
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[8]  has 6 members:
+ >>> 1.azimuth = 317
+ >>> 2.elevation = 18
+ >>> 3.satelliteIdentity = 15
+ >>> 4.signalToNoiseRatio = 43
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[9]  has 6 members:
+ >>> 1.azimuth = 37
+ >>> 2.elevation = 24
+ >>> 3.satelliteIdentity = 78
+ >>> 4.signalToNoiseRatio = 41
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[10]  has 6 members:
+ >>> 1.azimuth = 260
+ >>> 2.elevation = 32
+ >>> 3.satelliteIdentity = 80
+ >>> 4.signalToNoiseRatio = 32
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[11]  has 6 members:
+ >>> 1.azimuth = 301
+ >>> 2.elevation = 73
+ >>> 3.satelliteIdentity = 69
+ >>> 4.signalToNoiseRatio = 32
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[12]  has 6 members:
+ >>> 1.azimuth = 167
+ >>> 2.elevation = 47
+ >>> 3.satelliteIdentity = 68
+ >>> 4.signalToNoiseRatio = 28
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[13]  has 6 members:
+ >>> 1.azimuth = 231
+ >>> 2.elevation = 12
+ >>> 3.satelliteIdentity = 66
+ >>> 4.signalToNoiseRatio = 0
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+ >>> Struct[14]  has 6 members:
+ >>> 1.azimuth = 332
+ >>> 2.elevation = 11
+ >>> 3.satelliteIdentity = 70
+ >>> 4.signalToNoiseRatio = 0
+ >>> 5.signalToNoiseRatioB1C = 
+ >>> 6.signalToNoiseRatioL5 = 
+usedSatelliteInformation             t[13] = 
+ >>> Struct[0]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 14
+ >>> Struct[1]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 20
+ >>> Struct[2]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 5
+ >>> Struct[3]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 15
+ >>> Struct[4]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 7
+ >>> Struct[5]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 30
+ >>> Struct[6]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 19
+ >>> Struct[7]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 17
+ >>> Struct[8]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 13
+ >>> Struct[9]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 68
+ >>> Struct[10]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 80
+ >>> Struct[11]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 78
+ >>> Struct[12]  has 1 members:
+ >>> 1.usedSatelliteIdentity = 69
+vdop                                 0.77
+=================================================================================================================
+Total: 9 MOs
+
+
+HOLON> q!!
+Bye...
+Output has been logged to file /home/shared/zira/.Teal/TealLogs/holon.log
