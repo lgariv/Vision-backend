@@ -86,9 +86,11 @@ export const addNewSite = async (site: addSiteBodyType, password: string) => {
 			throw new Error("Authentication failed");
 		}
 
+		const siteId: string = site.siteName;
+
 		const isAlreadyExist = await prisma.site.findFirst({
 			where: {
-				id: site.siteName,
+				id: siteId,
 			},
 		});
 		if (isAlreadyExist) {
@@ -105,7 +107,7 @@ export const addNewSite = async (site: addSiteBodyType, password: string) => {
 					isInUse: true,
 				},
 				where: {
-					id: site.siteName,
+					id: siteId,
 				},
 			});
 			return results;
