@@ -110,7 +110,7 @@ export const addSite = async (
   );
 
   try {
-    const results = await addNewSite(site);
+    const results = await addNewSite(site, req.body.password);
     logger.info(
       `[controllers/site_management.ts] addNewSite was executed successfully. payload:${JSON.stringify(results)}`
     );
@@ -140,14 +140,14 @@ export const deleteSite = async (
   );
   try {
     if(siteName==="all"){
-      const results=await deleteSites();
+      const results=await deleteSites("all", req.body.password);
       logger.info(
         `[controllers/site_management.ts] deleteSite was executed successfully. payload:deleted all sites`
       );
       res.json({ success: true, data: results });
     }else{
       const siteList=siteName.includes(',') ? siteName.split(',') : [siteName];
-      const results=await deleteSites(siteList);
+      const results=await deleteSites(siteList, req.body.password);
       logger.info(
         `[controllers/site_management.ts] deleteSite was executed successfully. payload:${JSON.stringify(results)}`
       );
