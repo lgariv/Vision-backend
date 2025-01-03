@@ -46,7 +46,7 @@ export const addNewAllowedAlerts =async (
 			body: req.body.body,
 			modifier: req.body.modifier,
 		};
-		const results = await addNewAllowedAlert(obj);
+		const results = await addNewAllowedAlert(obj, req.body.password);
 		logger.info(
 			"[controllers/allowed_alerts_controller.ts] addNewAllowedAlerts was executed successfully"
 		);
@@ -73,7 +73,7 @@ export const deleteAllowedAlerts = async (
 
 	try {
 		const allowedAlertId: number[] = req.body.allowedAlertId;
-		const results = await deleteAllowedAlert(allowedAlertId);
+		const results = await deleteAllowedAlert(allowedAlertId, req.body.password);
 		logger.info(
 			"[controllers/allowed_alerts_controller.ts] deleteAllowedAlerts was executed successfully"
 		);

@@ -60,10 +60,23 @@ export const getAllowedAlerts = async () => {
  * @param allowedAlertObject {body: string;modifier: $Enums.Modifier;}
  * @returns allowedAlert that was created or error is something went wrong
  */
-export const addNewAllowedAlert = async (allowedAlertObject: {
-	body: string;
-	modifier: $Enums.Modifier;
-}) => {
+export const addNewAllowedAlert = async (
+	allowedAlertObject: {
+		body: string;
+		modifier: $Enums.Modifier;
+	},
+	password: string
+) => {
+	// Authenticate with Supabase
+	const { error: authError } = await supabase.auth.signInWithPassword({
+		email: "admin@admin.com",
+		password: password,
+	});
+
+	if (authError) {
+		throw new Error("Authentication failed");
+	}
+
 	try {
 		//create
 		const results = await prisma.allowedAlerts.create({
@@ -83,8 +96,18 @@ export const addNewAllowedAlert = async (allowedAlertObject: {
  * @param allowedAlertId allowedAlert ID
  * @returns
  */
-export const deleteAllowedAlert = async (allowedAlertId: number[]) => {
+export const deleteAllowedAlert = async (allowedAlertId: number[], password: string) => {
 	try {
+		// Authenticate with Supabase
+		const { error: authError } = await supabase.auth.signInWithPassword({
+			email: "admin@admin.com",
+			password: password,
+		});
+
+		if (authError) {
+			throw new Error("Authentication failed");
+		}
+
 		const response: {
 			id: number;
 			body: string;
