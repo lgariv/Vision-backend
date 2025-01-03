@@ -108,7 +108,7 @@ export const updateAllowedAlerts = async (
 			modifier: req.body.modifier,
 		};
 
-		const results = await updateAllowedAlert(dataObj);
+		const results = await updateAllowedAlert(dataObj, req.body.password);
 		logger.info(
 			"[controllers/allowed_alerts_controller.ts] updateAllowedAlerts was executed successfully"
 		);

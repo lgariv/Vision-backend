@@ -1,13 +1,31 @@
 import prisma from "../db";
 import { AllowedAlerts, $Enums } from "@prisma/client";
+import { createClient } from "@supabase/supabase-js";
+
+//from env vars
+const supabase = createClient(
+	process.env.SUPABASE_URL,
+	process.env.SUPABASE_ANON_KEY
+);
 
 /**
  * update the coresspond allowedAlert;
  * @param allowedAlertObject represent allowedAlert object with new values
  * @returns
  */
-export const updateAllowedAlert = async (allowedAlertObject: AllowedAlerts) => {
+export const updateAllowedAlert = async (allowedAlertObject: AllowedAlerts, password: string) => {
 	try {
+		// Authenticate with Supabase
+		const { error: authError } = await supabase.auth.signInWithPassword({
+			email: "admin@admin.com",
+			password: password,
+		});
+
+		if (authError) {
+			throw new Error("Authentication failed");
+		}
+
+		// Update the allowed alert
 		const res = await prisma.allowedAlerts.update({
 			where: {
 				id: allowedAlertObject.id,
@@ -19,7 +37,7 @@ export const updateAllowedAlert = async (allowedAlertObject: AllowedAlerts) => {
 		});
 		return res;
 	} catch (error) {
-		throw new Error(error);
+		throw new Error(error.message);
 	}
 };
 
