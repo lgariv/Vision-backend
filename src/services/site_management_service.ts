@@ -1,9 +1,16 @@
 import prisma from "../db";
 import { addSiteBodyType } from "../../types";
 import { Limits, SiteType } from "@prisma/client";
+import { createClient } from "@supabase/supabase-js";
+
+//from env vars
+const supabase = createClient(
+	process.env.SUPABASE_URL,
+	process.env.SUPABASE_ANON_KEY
+);
 
 /**
- * update the limits of the command;
+ * ucreateClient, pdate the limits of the command;
  * @param limitObject represent the id of the limit object and its limits
  * @returns
  */
@@ -67,8 +74,18 @@ export const updateDefLocation = async (
  * @param site
  * @returns site that was created or error is something went wrong
  */
-export const addNewSite = async (site: addSiteBodyType) => {
+export const addNewSite = async (site: addSiteBodyType, password: string) => {
 	try {
+		// Authenticate with Supabase
+		const { error: authError } = await supabase.auth.signInWithPassword({
+			email: "admin@admin.com",
+			password: password,
+		});
+
+		if (authError) {
+			throw new Error("Authentication failed");
+		}
+
 		const isAlreadyExist = await prisma.site.findFirst({
 			where: {
 				id: site.siteName,
@@ -118,8 +135,18 @@ export const addNewSite = async (site: addSiteBodyType) => {
  * @param siteList string array [sitename,sitename,...]
  * @returns
  */
-export const deleteSites = async (siteList: string[] | string = "all") => {
+export const deleteSites = async (siteList: string[] | string = "all", password: string) => {
 	try {
+		// Authenticate with Supabase
+		const { error: authError } = await supabase.auth.signInWithPassword({
+			email: "admin@admin.com",
+			password: password,
+		});
+
+		if (authError) {
+			throw new Error("Authentication failed");
+		}
+
 		if (siteList === "all") {
 			// const deletedSites = await prisma.site.deleteMany();
 			const deletedSites = await prisma.site.updateMany({

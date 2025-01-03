@@ -67,17 +67,17 @@ export const addNewAllowedAlert = async (
 	},
 	password: string
 ) => {
-	// Authenticate with Supabase
-	const { error: authError } = await supabase.auth.signInWithPassword({
-		email: "admin@admin.com",
-		password: password,
-	});
-
-	if (authError) {
-		throw new Error("Authentication failed");
-	}
-
 	try {
+		// Authenticate with Supabase
+		const { error: authError } = await supabase.auth.signInWithPassword({
+			email: "admin@admin.com",
+			password: password,
+		});
+
+		if (authError) {
+			throw new Error("Authentication failed");
+		}
+
 		//create
 		const results = await prisma.allowedAlerts.create({
 			data: {
