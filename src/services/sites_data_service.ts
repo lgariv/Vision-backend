@@ -697,9 +697,12 @@ const formatRRToObject = async (RRData: string) => {
 			//data row so handle and append
 			const rowData = line.split(" ").map((elem) => elem.trim()).filter((obj) => {return obj.length});
 			const splitArrayForSector = rowData[0].split("=")[1].split("_");
+
+			const sector = splitArrayForSector[splitArrayForSector.length-1].length >= 3 ? `${splitArrayForSector[splitArrayForSector.length-2]} ${splitArrayForSector[splitArrayForSector.length-1]}` : splitArrayForSector[splitArrayForSector.length-1]
+
 			data.push({
 				sectorId: `${rowId++}`,
-				sector: splitArrayForSector[splitArrayForSector.length - 1],
+				sector: sector,
 				counter: rowData[1],
 				value: rowData[2],
 			});
